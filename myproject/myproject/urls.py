@@ -15,10 +15,16 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 
+
 from django.contrib import admin
 from django.urls import path, include
+from django.http import HttpResponse
+
+def dome(request):  # this is also a view function 
+    return HttpResponse("Hello from the project-level view!")
 
 urlpatterns = [
+    path("dome/", dome,  name='dome'),
     path("admin/", admin.site.urls),
-    path('', include('myapp.urls')),
+    path('app/', include('myapp.urls')),
 ]
