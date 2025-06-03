@@ -8,3 +8,6 @@ def home(request):
 
 def dashbord(request):
     return HttpResponse ("this is my dashboard")
+
+def htmc(request):
+    return render(request,'index.html')

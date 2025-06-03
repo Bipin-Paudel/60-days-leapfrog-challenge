@@ -19,12 +19,15 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 from django.http import HttpResponse
+from django.shortcuts import render
 
 def dome(request):  # this is also a view function 
     return HttpResponse("Hello from the project-level view!")
 
+
 urlpatterns = [
-    path("dome/", dome,  name='dome'),
+    path("", dome,  name='dome'),
     path("admin/", admin.site.urls),
     path('app/', include('myapp.urls')),
 ]
+
